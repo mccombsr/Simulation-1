@@ -12,6 +12,16 @@ module.exports = {
         // res.send(console.log("Gotcha"))
     },
     create: (req,res)=>{
-        res.send(console.log('It actually worked!!!'))
+        const {product_name, price, image_url} = req.body;
+        const dbInstance = req.app.get('db')
+        dbInstance.create_product([product_name, price, image_url])
+        .then((response)=>{
+            res.sendStatus(200)
+        })
+        .catch((err)=>{
+            res.status(500).send({errorMessage: `Darn it all!!!`})
+            console.log(err)
+        })
+        // res.send(console.log(product_name, price, image_url));
     }
 }

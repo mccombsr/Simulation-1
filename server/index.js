@@ -18,7 +18,7 @@ massive(process.env.CONNECTION_STRING)
 })
 
 app.get('/api/inventory', controller.getAll)
-app.post('/api/inventory', controller.create)
+app.post('/api/product', controller.create)
 
 
 
