@@ -8,6 +8,14 @@ const massive = require('massive');
 const app = express();
 app.use(bodyParser.json());
 
+massive(process.env.CONNECTION_STRING)
+.then((dbInstance)=>{
+    app.set('db', dbInstance);
+    console.log(`DB now taking calls.`)
+})
+.catch((err)=>{
+    console.log(err)
+})
 
 
 
