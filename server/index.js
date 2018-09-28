@@ -17,6 +17,10 @@ massive(process.env.CONNECTION_STRING)
     console.log(err)
 })
 
+app.get('/api/inventory', controller.getAll)
+app.post('/api/inventory', controller.create)
+
+
 
 
 const port = process.env.PORT;  
